@@ -26,7 +26,6 @@ public class OrderService {
         Order order = new Order(userId, total, LocalDateTime.now(), cartItems);
         orderRepository.save(order);
 
-        // Empty user cart (delete from products table if they represent cart items)
         productRepository.deleteAll(cartItems);
 
         return order;
