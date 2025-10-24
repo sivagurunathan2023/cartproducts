@@ -1,7 +1,7 @@
 package com.example.product.service;
 
 import com.example.product.entity.Order;
-import com.example.product.entity.product;
+import com.example.product.entity.Product;
 import com.example.product.repository.OrderRepository;
 import com.example.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class OrderService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Order placeOrder(int userId, List<product> cartItems) {
+    public Order placeOrder(int userId, List<Product> cartItems) {
         double total = cartItems.stream()
                 .mapToDouble(item -> item.getProductPrice() * item.getProductQuantity())
                 .sum();
